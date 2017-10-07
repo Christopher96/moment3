@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>moment3</name>
+    <name>Moment3 - PhoneGap</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        En uppgift för kursen Webbutveckling för mobila enheter i PhoneGap
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="christopher.gauffin@gmail.com" href="#">
+        Christopher Gauffin
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />

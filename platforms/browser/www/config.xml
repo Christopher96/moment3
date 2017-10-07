@@ -6,12 +6,12 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>moment3</name>
+    <name>Moment3 - PhoneGap</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        En uppgift för kursen Webbutveckling för mobila enheter i PhoneGap
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="christopher.gauffin@gmail.com" href="#">
+        Christopher Gauffin
     </author>
     <content src="index.html" />
     <access origin="*" />

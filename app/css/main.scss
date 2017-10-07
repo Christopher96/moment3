@@ -1,0 +1,11 @@
+
+// bower:scss
+@import "bower_components/bootstrap/scss/bootstrap.scss";
+// endbower
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $body-color;
+  background-color: $body-bg;
+}

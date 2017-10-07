@@ -1,0 +1,30 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add bootstrap
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/admin/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/Users/admin/.antigen/bundles/zsh-users/zsh-autosuggestions:/Users/admin/.antigen/bundles/mafredri/zsh-async:/Users/admin/.antigen/bundles/sindresorhus/pure:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/extract:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/dirhistory:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/history:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/jump:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/cp:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/archlinux:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/nyan:/Users/admin/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/rand-quote
+
+Yarn version: 
+  0.24.6
+
+Node version: 
+  7.10.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/bootstrap: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:852:19)
+      at ontimeout (timers.js:386:14)
+      at tryOnTimeout (timers.js:250:5)
+      at Timer.listOnTimeout (timers.js:214:5)
