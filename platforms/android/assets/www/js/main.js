@@ -20,9 +20,17 @@ function supports_json() {
 }
 
 function onDeviceReady() {
-    $("#pic").click(takePic);
     $("#vibrate").click(vibrate);
     $("#alert").click(alert);
+
+    if (supports_html5_storage() && supports_json()) {
+        $("#pic").click(takePic);
+        if (hasInStorage("mainImg")) {
+            changeImage(getFromStorage("mainImg"));
+        }
+    } else {
+        $("#pic").prop("disabled", true);
+    }
 
     window.addEventListener("batterystatus", onBatteryStatus, false);
     console.log(device.cordova);
@@ -36,8 +44,9 @@ function onBatteryStatus(status) {
 
 function takePic() {
     navigator.camera.getPicture(function (imageData) {
-        console.log("success");
         changeImage(imageData);
+        vibrate(1000);
+        alert();
     }, function () {
         console.log("fail");
     }, {
@@ -47,6 +56,7 @@ function takePic() {
 
 function changeImage(imageData) {
     $("#mainImg").attr("src", "data:image/jpeg;base64," + imageData);
+    addToStorage("mainImg", imageData);
 }
 
 function vibrate() {
@@ -54,20 +64,17 @@ function vibrate() {
 }
 
 function alert() {
-    //console.log("alert");
-    navigator.notification.alert('You are the winner!', // message
+    navigator.notification.alert('Your picture has been taken!', // message
     alertCallback, // callback
-    'Game Over', // title
-    'Done' // buttonName
+    'Alert', // title
+    'OK!' // buttonName
     );
 }
 //Adding to storage
 function addToStorage(id, data) {
-    if (!hasInStorage(id)) {
-        var storage = getStorage();
-        storage[id] = data;
-        saveStorage(data);
-    }
+    var storage = getStorage();
+    storage[id] = data;
+    saveStorage(storage);
 }
 
 //loading from storage
@@ -76,6 +83,11 @@ function getStorage() {
     var storage = {};
     if (typeof current != "undefined") storage = window.JSON.parse(current);
     return storage;
+}
+
+function getFromStorage(id) {
+    var storage = getStorage();
+    return storage[id];
 }
 
 //Checking storage
@@ -94,7 +106,7 @@ function removeFromStorage(id, data) {
 }
 
 //save storage
-function saveStorage(data) {
+function saveStorage(storage) {
     console.log("To store...");
     console.dir(storage);
     localStorage["main"] = window.JSON.stringify(storage);
