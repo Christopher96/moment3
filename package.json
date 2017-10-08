@@ -1,46 +1,93 @@
 {
-  "private": true,
-  "engines": {
-    "node": ">=4"
-  },
-  "devDependencies": {
-    "babel-core": "^6.4.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.5.2",
-    "browser-sync": "^2.2.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.1",
-    "gulp-babel": "^6.1.1",
-    "gulp-cache": "^0.4.2",
-    "gulp-cssnano": "^2.0.0",
-    "gulp-eslint": "^3.0.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^3.0.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.0.0",
-    "main-bower-files": "^2.5.0",
-    "run-sequence": "^1.2.2",
-    "wiredep": "^4.0.0"
-  },
-  "eslintConfig": {
-    "env": {
-      "es6": true,
-      "node": true,
-      "browser": true
+    "private": true,
+    "engines": {
+        "node": ">=4"
     },
-    "rules": {
-      "quotes": [
-        2,
-        "single"
-      ]
+    "devDependencies": {
+        "babel-core": "^6.4.0",
+        "babel-preset-es2015": "^6.3.13",
+        "babel-register": "^6.5.2",
+        "browser-sync": "^2.2.1",
+        "del": "^2.2.0",
+        "gulp": "^3.9.0",
+        "gulp-autoprefixer": "^3.0.1",
+        "gulp-babel": "^6.1.1",
+        "gulp-cache": "^0.4.2",
+        "gulp-cssnano": "^2.0.0",
+        "gulp-eslint": "^3.0.0",
+        "gulp-filter": "^4.0.0",
+        "gulp-htmlmin": "^3.0.0",
+        "gulp-if": "^2.0.2",
+        "gulp-imagemin": "^3.4.0",
+        "gulp-load-plugins": "^1.2.4",
+        "gulp-plumber": "^1.1.0",
+        "gulp-sass": "^3.0.0",
+        "gulp-size": "^2.1.0",
+        "gulp-sourcemaps": "^2.2.0",
+        "gulp-uglify": "^2.0.0",
+        "gulp-useref": "^3.0.0",
+        "main-bower-files": "^2.5.0",
+        "run-sequence": "^1.2.2",
+        "wiredep": "^4.0.0"
+    },
+    "eslintConfig": {
+        "env": {
+            "es6": true,
+            "node": true,
+            "browser": true
+        },
+        "rules": {
+            "quotes": [
+                2,
+                "single"
+            ]
+        }
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-battery-status": {},
+            "cordova-plugin-camera": {},
+            "cordova-plugin-console": {},
+            "cordova-plugin-contacts": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-device-motion": {},
+            "cordova-plugin-device-orientation": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-file": {},
+            "cordova-plugin-file-transfer": {},
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-globalization": {},
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-media": {},
+            "cordova-plugin-media-capture": {},
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-vibration": {},
+            "cordova-plugin-whitelist": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-plugin-battery-status": "~1.1.1",
+        "cordova-plugin-camera": "~2.1.1",
+        "cordova-plugin-console": "~1.0.2",
+        "cordova-plugin-contacts": "~2.0.1",
+        "cordova-plugin-device": "~1.1.1",
+        "cordova-plugin-device-motion": "~1.2.0",
+        "cordova-plugin-device-orientation": "~1.0.2",
+        "cordova-plugin-dialogs": "~1.2.0",
+        "cordova-plugin-file": "~4.1.1",
+        "cordova-plugin-file-transfer": "~1.5.0",
+        "cordova-plugin-geolocation": "~2.1.0",
+        "cordova-plugin-globalization": "~1.0.3",
+        "cordova-plugin-inappbrowser": "~1.3.0",
+        "cordova-plugin-media": "~2.2.0",
+        "cordova-plugin-media-capture": "~1.2.0",
+        "cordova-plugin-network-information": "~1.2.0",
+        "cordova-plugin-splashscreen": "~3.2.1",
+        "cordova-plugin-statusbar": "~2.1.2",
+        "cordova-plugin-vibration": "~2.1.0",
+        "cordova-plugin-whitelist": "~1.2.1"
     }
-  }
 }
