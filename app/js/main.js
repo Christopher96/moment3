@@ -62,7 +62,8 @@ function takePic() {
     }, function(){
         popup("Det gick inte att ta bilden...");
     }, {
-        quality: 100
+        quality: 100,
+        correctOrientation: true
     });
 }
 
