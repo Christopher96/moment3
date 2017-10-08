@@ -23,6 +23,10 @@ function onDeviceReady() {
     $("#vibrate").click(vibrate);
     $("#alert").click(alert);
 
+    if ("file://".includes("file")) {
+        console.log("hello");
+    }
+
     if (supports_html5_storage() && supports_json()) {
         $("#pic").click(takePic);
         if (hasInStorage("mainImg")) {
@@ -55,8 +59,10 @@ function takePic() {
 }
 
 function changeImage(imageData) {
-    console.log(imageData);
-    $("#mainImg").attr("src", "data:image/jpeg;base64," + imageData);
+    if (!imageData.includes("file:///")) {
+        imageData = "data:image/jpeg;base64," + imageData;
+    }
+    $("#mainImg").attr("src", imageData);
     addToStorage("mainImg", imageData);
 }
 
