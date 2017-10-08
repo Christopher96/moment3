@@ -56,6 +56,7 @@ function takePic() {
 }
 
 function changeImage(imageData){
+  console.log(imageData);
   $("#mainImg").attr("src", "data:image/jpeg;base64," + imageData);
   addToStorage("mainImg", imageData);
 }
