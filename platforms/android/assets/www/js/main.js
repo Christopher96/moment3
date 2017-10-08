@@ -2,9 +2,6 @@
 $(document).ready(function () {
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    $("#vibrate").click(vibrate);
-    $("#alert").click(alert);
-
     if (supports_html5_storage() && supports_json()) {
 
         $("#removeImg").click(removeImage);
@@ -49,24 +46,34 @@ function onBatteryStatus(status) {
 }
 
 function takePic() {
-    navigator.camera.getPicture(function (imageData) {
+    navigator.camera.getPicture(function (imgBlob) {
+        var date = new Date();
+        var imageData = {
+            timestamp: date.toDateString(),
+            blob: imgBlob
+        };
         changeImage(imageData);
-        vibrate(1000);
-        alert();
+        navigator.vibrate(1000);
+        popup("Din bild har sparats!");
     }, function () {
-        console.log("fail");
+        popup("Det gick inte att ta bilden...");
     }, {
         quality: 100
     });
 }
 
 function changeImage(imageData) {
+    var imgBlob = imageData.blob;
     addToStorage("mainImg", imageData);
-    if (!imageData.includes("file:///")) {
-        imageData = "data:image/jpeg;base64," + imageData;
+    if (!imgBlob.includes("file:///")) {
+        imgBlob = "data:image/jpeg;base64," + imgBlob;
     }
-    $("#mainImg").attr("src", imageData);
+    $("#mainImg").attr("src", imgBlob);
     $("#mainImg").show();
+
+    $("#timestamp span").text(imageData.timestamp);
+    $("#timestamp").show();
+
     $("#noImg").hide();
 
     $("#takeImg").hide();
@@ -77,23 +84,24 @@ function removeImage() {
     removeFromStorage("mainImg");
 
     $("#mainImg").hide();
+    $("#timestamp").hide();
+
     $("#noImg").show();
 
     $("#takeImg").show();
     $("#removeImg").hide();
+
+    popup("Din bild har raderats!");
 }
 
-function vibrate() {
-    navigator.vibrate(3000);
-}
-
-function alert() {
-    navigator.notification.alert('Your picture has been taken!', // message
+function popup(text) {
+    navigator.notification.alert(text, // message
     alertCallback, // callback
-    'Alert', // title
-    'OK!' // buttonName
+    'Bildfunktion', // title
+    'Ok' // buttonName
     );
 }
+
 //Adding to storage
 function addToStorage(id, data) {
     var storage = getStorage();

@@ -15,6 +15,7 @@ button {
 }
 
 #containerImg {
+  position: relative;
   border: 1px solid;
   display: flex;
   justify-content: center;
@@ -29,6 +30,12 @@ button {
 
 #noImg {
   padding: 100px 0px;
+}
+
+#timestamp {
+  top: 10px;
+  left: 10px;
+  position: absolute;
 }
 
 .container {
