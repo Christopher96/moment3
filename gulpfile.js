@@ -93,22 +93,22 @@ gulp.task('clean', del.bind(null, ['.tmp', 'www']));
 
 gulp.task('serve', () => {
   runSequence(['wiredep'], ['styles', 'scripts', 'fonts'], () => {
-    /*browserSync.init({
+    browserSync.init({
       notify: false,
       port: 9000,
       server: {
-        baseDir: ['.tmp', 'app'],
+        baseDir: ['www', 'app'],
         routes: {
           '/bower_components': 'bower_components'
         }
       }
-    });*/
+    });
 
-    // gulp.watch([
-    //   'app/*.html',
-    //   'app/images/**/*',
-    //   '.tmp/fonts/**/*'
-    // ]).on('change', reload);
+    gulp.watch([
+      'app/*.html',
+      'app/images/**/*',
+      '.tmp/fonts/**/*'
+    ]).on('change', reload);
 
     gulp.watch('app/css/**/*.scss', ['styles']);
     gulp.watch('app/js/**/*.js', ['scripts']);
