@@ -65,7 +65,8 @@ gulp.task('html', ['styles', 'scripts'], () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(gulp.dest('www'));
+    .pipe(gulp.dest('www'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('images', () => {

@@ -6,6 +6,31 @@
 body {
   margin: 0;
   padding: 0;
-  color: $body-color;
-  background-color: $body-bg;
+  @extend .text-primary;
+  @extend .bg-dark;
+}
+
+button {
+  width: 100%;
+}
+
+#containerImg {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#mainImg  {
+  width: 100%;
+  height: auto;
+}
+
+#noImg {
+  padding: 100px 0px;
+}
+
+.container {
+  padding: 30px;
 }

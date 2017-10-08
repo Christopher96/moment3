@@ -1,7 +1,27 @@
 
-
 $(document).ready(function(){
-  document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);
+  
+    $("#vibrate").click(vibrate);
+    $("#alert").click(alert);
+   
+    if(supports_html5_storage() && supports_json()){
+
+        $("#removeImg").click(removeImage);
+        $("#takeImg").click(takePic);
+
+        if(hasInStorage("mainImg")){
+            changeImage(getFromStorage("mainImg"));
+        } else {
+            removeImage();
+        }
+    } else {
+        $("#takeImg").prop("disabled", true);
+        $("#mainImg").hide();
+    }
+
+    
+    
 });
 
 function supports_html5_storage() {
@@ -20,22 +40,7 @@ function supports_json() {
 }
 
 function onDeviceReady() {
-    $("#vibrate").click(vibrate);
-    $("#alert").click(alert);
-
-    if(("file://").includes("file")) {
-      console.log("hello");
-    }
-
-    if(supports_html5_storage() && supports_json()){
-      $("#pic").click(takePic);
-      if(hasInStorage("mainImg")){
-        changeImage(getFromStorage("mainImg"));
-      }
-    } else {
-      $("#pic").prop("disabled", true);
-    }
-
+    
     window.addEventListener("batterystatus", onBatteryStatus, false);
     console.log(device.cordova);
     console.log(navigator.globalization);
@@ -60,11 +65,26 @@ function takePic() {
 }
 
 function changeImage(imageData){
+  addToStorage("mainImg", imageData);
   if(!(imageData).includes("file:///")) {
     imageData = "data:image/jpeg;base64," + imageData;
   }
   $("#mainImg").attr("src", imageData);
-  addToStorage("mainImg", imageData);
+  $("#mainImg").show();
+  $("#noImg").hide();
+
+  $("#takeImg").hide();
+  $("#removeImg").show();
+}
+
+function removeImage(){
+    removeFromStorage("mainImg");
+
+    $("#mainImg").hide();
+    $("#noImg").show();
+  
+    $("#takeImg").show();
+    $("#removeImg").hide();
 }
 
 function vibrate() {
