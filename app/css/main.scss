@@ -23,9 +23,14 @@ button {
   
 }
 
+#removeImg {
+  display: none;
+}
+
 #mainImg  {
   width: 100%;
   height: auto;
+  display: none;
 }
 
 #noImg {
@@ -36,6 +41,7 @@ button {
   top: 10px;
   left: 10px;
   position: absolute;
+  display: none;
 }
 
 .container {

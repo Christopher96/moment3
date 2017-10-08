@@ -1,4 +1,3 @@
-// generated on 2017-09-18 using generator-webapp 3.0.1
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
@@ -22,7 +21,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
-    .pipe(gulp.dest('www/css'))
+    .pipe(gulp.dest('.tmp/css'))
     .pipe(reload({stream: true}));
 });
 
@@ -32,7 +31,7 @@ gulp.task('scripts', () => {
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
-    .pipe(gulp.dest('www/js'))
+    .pipe(gulp.dest('.tmp/js'))
     .pipe(reload({stream: true}));
 });
 
@@ -70,9 +69,9 @@ gulp.task('html', ['styles', 'scripts'], () => {
 });
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src('app/img/**/*')
     .pipe($.cache($.imagemin()))
-    .pipe(gulp.dest('www/images'));
+    .pipe(gulp.dest('www/img'));
 });
 
 gulp.task('fonts', () => {
@@ -98,7 +97,7 @@ gulp.task('serve', () => {
       notify: false,
       port: 9000,
       server: {
-        baseDir: ['www', 'app'],
+        baseDir: ['.tmp', 'app'],
         routes: {
           '/bower_components': 'bower_components'
         }

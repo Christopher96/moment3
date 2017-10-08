@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     document.addEventListener("deviceready", onDeviceReady, false);
-   
+
     if(supports_html5_storage() && supports_json()){
 
         $("#removeImg").click(removeImage);
@@ -9,16 +9,11 @@ $(document).ready(function(){
 
         if(hasInStorage("mainImg")){
             changeImage(getFromStorage("mainImg"));
-        } else {
-            removeImage();
         }
     } else {
         $("#takeImg").prop("disabled", true);
         $("#mainImg").hide();
     }
-
-    
-    
 });
 
 function supports_html5_storage() {
@@ -37,7 +32,7 @@ function supports_json() {
 }
 
 function onDeviceReady() {
-    
+
     window.addEventListener("batterystatus", onBatteryStatus, false);
     console.log(device.cordova);
     console.log(navigator.globalization);

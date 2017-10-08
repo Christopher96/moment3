@@ -39,13 +39,6 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
 
-    <!-- build:js scripts/plugins.js -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/main.js -->
-    <!-- endbuild -->
-
-
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <title>Hello World</title>
 </head>
@@ -66,7 +59,7 @@
 
 </body>
 
-    <!-- build:js scripts/vendor.js -->
+    <!-- build:js js/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/popper.js/dist/umd/popper.js"></script>
@@ -74,8 +67,12 @@
     <!-- endbuild -->
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    
 
+    <!-- build:js js/build.js -->
+    <script type="text/javascript" src="js/main.js"></script>
     <!-- <script type="text/javascript" src="http://192.168.0.11:8080/target/target-script-min.js#anonymous"></script> -->
+    <!-- endbuild -->
+
 
 </html>
